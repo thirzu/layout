@@ -33,7 +33,7 @@
         #column .column_box img:hover{
             opacity: 1;
             transform: scale(1.5,1.5);
-            z-index: 99;
+            z-index: 50;
         }
         #cover{
             width: 100%;
@@ -45,6 +45,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            z-index: 99;
         }
         #cover img{
             margin: auto;
@@ -116,6 +117,8 @@ Column.prototype.addBox = function (num) {
                     event = event || window.event,
                     target = event.target || event.srcElement;
             cover_img.src = target.src;
+            target.opacity = "0.5";
+            target.transform = "scale(1,1)";
             removeClass(cover,"hidden");
             stopBubble(event);
         });
